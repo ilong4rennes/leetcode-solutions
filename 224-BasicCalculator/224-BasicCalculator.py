@@ -1,26 +1,34 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        number = 0
-        sign_value = 1
+        result, num, sign = self.initialize()
+        stack = []
+
+        for char in s:
+            if char.isdigit():
+                num = num * 10 + int(char)
+            elif char == '+':
+                result += num * sign
+                sign = 1
+                num = 0
+            elif char == '-':
+                result += num * sign
+                sign = -1
+                num = 0
+            elif char == '(':
+                stack.append(result)
+                stack.append(sign)
+                result, num, sign = self.initialize()
+            elif char == ')':
+                result += num * sign
+                num = 0
+                sign = stack.pop()
+                prev_num = stack.pop()
+                result = prev_num + result * sign
+        result += num * sign
+        return result
+        
+    def initialize(self):
         result = 0
-        operations_stack = []
-
-        for c in s:
-            if c.isdigit():
-                number = number * 10 + int(c)
-            elif c in "+-":
-                result += number * sign_value
-                sign_value = -1 if c == '-' else 1
-                number = 0
-            elif c == '(':
-                operations_stack.append(result)
-                operations_stack.append(sign_value)
-                result = 0
-                sign_value = 1
-            elif c == ')':
-                result += sign_value * number
-                result *= operations_stack.pop()
-                result += operations_stack.pop()
-                number = 0
-
-        return result + number * sign_value
+        num = 0
+        sign = 1
+        return result, num, sign
