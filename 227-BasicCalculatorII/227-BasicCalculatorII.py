@@ -1,28 +1,24 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        stack = []
         num = 0
+        stack = []
         op = '+'
-        s = s.replace(" ", "")  # Remove spaces for simplicity
-        
+        s = s.replace(" ", "")
+
         for i, char in enumerate(s):
             if char.isdigit():
-                num = num * 10 + int(char)  # Handle multi-digit numbers
-            
+                num = num * 10 + int(char)
             if not char.isdigit() or i == len(s) - 1:
-                # Process the operator
                 if op == '+':
                     stack.append(num)
                 elif op == '-':
                     stack.append(-num)
                 elif op == '*':
-                    stack.append(stack.pop() * num)
+                    last_num = stack.pop()
+                    stack.append(last_num * num)
                 elif op == '/':
-                    # Use int to truncate toward zero
-                    stack.append(int(stack.pop() / num))
-                
-                # Update operator and reset number
+                    last_num = stack.pop()
+                    stack.append(int(last_num / num))
                 op = char
                 num = 0
-        
         return sum(stack)
