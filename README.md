@@ -11,12 +11,12 @@
 
 ## Hashmap
 ### Use hash to solve problems
-- [ ] 1160
-- [ ] 771
-- [ ] 454
-- [ ] 202
+- [x] 1160
+- [x] 771
+- [x] 454
+- [x] 202
 - [ ] 149
-- [ ] 953
+- [x] 953
 
 ### Basic theory and implementation
 - [x] 705
