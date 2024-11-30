@@ -52,8 +52,8 @@
 - [ ] 264
 
 ## Sorting
-- [ ] 912: Sort an Array (mergesort and quicksort)
-- [ ] 75: Sort Colors
+- [x] 912: Sort an Array (mergesort and quicksort)
+- [x] 75: Sort Colors
 - [ ] 360: Sort Transformed Array
 - [ ] 1329: Sort the Matrix Diagonally
 - [ ] 973: K Closest Points to Origin
