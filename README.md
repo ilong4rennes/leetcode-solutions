@@ -62,7 +62,26 @@
 - [ ] 1968: Array with Elements Not Equal to Average of Neighbors
 
 ## Intervals
-## Graph General
+## Graph Search
+
+### Topological sorting
+- [ ] LC207: Course Schedule
+- [ ] LC210: Course Schedule II
+
+### Traversal
+- [ ] LC133: Clone Graph
+
+### Shortest path
+- [ ] LC743: Network Delay Time
+
+### DFS(Matrix)
+- [ ] LC505: The Maze II
+- [ ] LC499: The Maze III
+- [ ] LC463: Island Perimeter
+
+### DFS(Graph)
+- [ ] LC785: Is Graph Bipartite?
+
 ## Graph BFS
 ## Trie
 ## Backtracking
