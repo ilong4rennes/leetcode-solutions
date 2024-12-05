@@ -69,7 +69,7 @@
 - [ ] LC210: Course Schedule II
 
 ### Traversal
-- [ ] LC133: Clone Graph
+- [x] LC133: Clone Graph
 
 ### Shortest path
 - [ ] LC743: Network Delay Time
