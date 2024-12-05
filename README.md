@@ -45,7 +45,7 @@
 - [ ] 739
 
 ## Heap
-- [ ] 253
+- [x] 253
 - [ ] 347
 - [ ] 218
 - [ ] 480
@@ -75,7 +75,7 @@
 - [ ] LC743: Network Delay Time
 
 ### DFS(Matrix)
-- [ ] LC505: The Maze II
+- [x] LC505: The Maze II
 - [ ] LC499: The Maze III
 - [ ] LC463: Island Perimeter
 
