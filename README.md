@@ -54,7 +54,7 @@
 ## Sorting
 - [x] 912: Sort an Array (mergesort and quicksort)
 - [x] 75: Sort Colors
-- [ ] 360: Sort Transformed Array
+- [x] 360: Sort Transformed Array
 - [ ] 1329: Sort the Matrix Diagonally
 - [ ] 973: K Closest Points to Origin
 - [ ] 324: Wiggle Sort II
