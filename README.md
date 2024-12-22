@@ -1,14 +1,5 @@
 # Leetcode Problems
 
-## Array / String
-## Two Pointers
-## Sliding Window
-## Matrix
-## Linked List
-## Tree
-### Binary Tree General
-### Binary Search Tree
-
 ## Hashmap
 ### Use hash to solve problems
 - [x] 1160
@@ -61,7 +52,6 @@
 - [ ] 215: Kth Largest Element in an Array
 - [ ] 1968: Array with Elements Not Equal to Average of Neighbors
 
-## Intervals
 ## Graph Search
 
 ### Topological sorting
@@ -82,11 +72,4 @@
 ### DFS(Graph)
 - [ ] LC785: Is Graph Bipartite?
 
-## Graph BFS
-## Trie
-## Backtracking
-- Divide & Conquer
-- Kadane's Algorithm
-- Binary Search
-- 1D DP
-- Multidimensional DP
+
