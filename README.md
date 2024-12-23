@@ -50,7 +50,7 @@
 - [x] 973: K Closest Points to Origin
 - [x] 324: Wiggle Sort II
 - [x] 215: Kth Largest Element in an Array
-- [ ] 1968: Array with Elements Not Equal to Average of Neighbors
+- [x] 1968: Array with Elements Not Equal to Average of Neighbors
 
 ## Graph Search
 
