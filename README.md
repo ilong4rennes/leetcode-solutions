@@ -49,7 +49,7 @@
 - [x] 1329: Sort the Matrix Diagonally
 - [x] 973: K Closest Points to Origin
 - [x] 324: Wiggle Sort II
-- [ ] 215: Kth Largest Element in an Array
+- [x] 215: Kth Largest Element in an Array
 - [ ] 1968: Array with Elements Not Equal to Average of Neighbors
 
 ## Graph Search
