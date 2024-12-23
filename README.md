@@ -2,19 +2,21 @@
 
 ## Hashmap
 ### Use hash to solve problems
-- [x] 1160
-- [x] 771
-- [x] 454
-- [x] 202
-- [ ] 149
-- [x] 953
+- [x] 1160: Find Words That Can Be Formed By Characters
+- [x] 771: Jewels and Stones
+- [x] 454: 4Sum II
+- [x] 202: Happy Number
+- [ ] 149: Max Points on a Line
+- [x] 953: Verifying an Alien Dictionary
+
 
 ### Basic theory and implementation
-- [x] 705
+- [x] 705: Design HashSet
 
 ### Combined to create new data structure
-- [ ] 460
-- [ ] 1756
+- [ ] 460: LFU Cache
+- [ ] 1756: Design Most Recently Used Queue
+
 
 ## Queue & Stack:
 ### Monotonic Queue
