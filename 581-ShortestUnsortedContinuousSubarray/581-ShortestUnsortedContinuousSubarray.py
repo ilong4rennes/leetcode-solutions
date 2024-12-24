@@ -1,16 +1,30 @@
-class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
-        minNum, maxNum = float(inf), float(-inf)
-        left, right = 0, - 1
-        for i in range(len(nums)):
-            maxNum = max(nums[i], maxNum)
-            if nums[i] < maxNum:
-                right = i
+class Solution(object):
+    def findUnsortedSubarray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) < 2: return 0
         
-        for i in range(len(nums) - 1, -1, -1):
-            minNum = min(nums[i], minNum)
-            if nums[i] > minNum:
-                left = i 
-                
-        return right - left + 1
+        l, r = 0, len(nums) - 1
         
+        while l < len(nums) - 1 and nums[l] <= nums[l + 1]:
+            l += 1
+        
+        while r > 0 and nums[r] >= nums[r -1]:
+            r -= 1
+            
+        if l > r:
+            return 0
+            
+        temp = nums[l:r+1]
+        tempMin = min(temp)
+        tempMax = max(temp)
+        
+        while l > 0 and tempMin < nums[l-1]:
+            l -= 1
+        
+        while r < len(nums) - 1 and tempMax > nums[r+1]:
+            r += 1
+            
+        return r - l + 1
