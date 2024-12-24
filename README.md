@@ -20,7 +20,7 @@
 
 ## Queue & Stack:
 ### Monotonic Queue
-- [ ] 581
+- [x] 581
 - [ ] 862
 - [ ] 2407
 - [ ] 1438
