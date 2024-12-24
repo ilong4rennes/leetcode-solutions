@@ -14,7 +14,7 @@
 - [x] 705: Design HashSet
 
 ### Combined to create new data structure
-- [ ] 460: LFU Cache
+- [x] 460: LFU Cache
 - [ ] 1756: Design Most Recently Used Queue
 
 
