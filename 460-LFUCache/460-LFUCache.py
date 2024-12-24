@@ -5,7 +5,6 @@ class LFUCache:
         self.min_frequency = 0
         self.cache = {}  # Maps key to (value, frequency)
         self.frequency_map = defaultdict(list)  # Maps frequency to a list of keys
-        self.key_frequency = {}  # Tracks the frequency of each key
 
     def _update_frequency(self, key):
         """Update the frequency of a key."""
