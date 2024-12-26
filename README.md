@@ -64,7 +64,7 @@
 - [x] LC133: Clone Graph
 
 ### Shortest path
-- [ ] LC743: Network Delay Time
+- [x] LC743: Network Delay Time
 
 ### DFS(Matrix)
 - [x] LC505: The Maze II
