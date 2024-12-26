@@ -15,7 +15,7 @@
 
 ### Combined to create new data structure
 - [x] 460: LFU Cache
-- [ ] 1756: Design Most Recently Used Queue
+- [x] 1756: Design Most Recently Used Queue
 
 
 ## Queue & Stack:
