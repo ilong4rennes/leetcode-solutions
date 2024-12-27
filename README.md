@@ -75,6 +75,6 @@
 - [x] LC463: Island Perimeter
 
 ### DFS(Graph)
-- [ ] LC785: Is Graph Bipartite?
+- [x] LC785: Is Graph Bipartite?
 
 
