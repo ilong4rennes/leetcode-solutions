@@ -1,6 +1,42 @@
 # Leetcode Problems
+- **Data Structures**: Array / Linked List, Tree, Hashmap (Set / Map), Queue & Stack, Heap & PQ
+- **Algorithms**: Sorting, Graph Search
 
 # Data Structures
+
+## Array / Linked List
+- [x] LC15: 3Sum
+- [x] LC88: Merge Sorted Array
+- [x] LC143: Reorder List
+- [x] LC167: Two Sum II – Input Array Is Sorted
+- [x] LC170: Two Sum III – Data structure Design
+- [x] LC206: Reverse Linked List
+- [x] LC237: Delete Node in a Linked List
+- [x] LC382: Linked List Random Node
+- [x] LC148: Sort List
+- [x] LC997: Find the Town Judge
+
+## Tree
+### Tree Traversal
+- [ ] LC106: Construct Binary Tree from Inorder and Postorder Traversal
+- [ ] LC107: Binary Tree Level Order Traversal II
+- [ ] LC337: House Robber III
+- [ ] LC1245: Tree Diameter
+
+### BST
+- [ ] LC700: Search in a Binary Search Tree
+- [ ] LC701: Insert Into a Binary Search Tree
+- [ ] LC33: Search in Rotated Array
+- [ ] LC658: Find K Closest Element
+- [ ] LC278: First Bad Version
+
+### Trie
+- [ ] LC208: Implement Trie
+- [ ] LC1804: Implement Trie II
+- [ ] LC648: Replace Words
+- [ ] LC692: Top K Frequent Words
+- [ ] LC745: Prefix and Suffix Search
+
 ## Hashmap
 ### Use hash to solve problems
 - [x] 1160: Find Words That Can Be Formed By Characters
