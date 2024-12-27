@@ -71,7 +71,7 @@
 ### DFS(Matrix)
 - [x] LC490: The Maze I
 - [x] LC505: The Maze II
-- [ ] LC499: The Maze III
+- [x] LC499: The Maze III
 - [x] LC463: Island Perimeter
 
 ### DFS(Graph)
