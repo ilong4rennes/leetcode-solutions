@@ -60,7 +60,7 @@
 
 ### Topological sorting
 - [x] LC207: Course Schedule
-- [ ] LC210: Course Schedule II
+- [x] LC210: Course Schedule II
 
 ### Traversal
 - [x] LC133: Clone Graph
