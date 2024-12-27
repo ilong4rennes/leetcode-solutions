@@ -1,26 +1,71 @@
 class Solution:
+    # def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
+    #     rows, cols = len(maze), len(maze[0])
+    #     visited = {}
+    #     dist = {}
+    #     for row in range(rows):
+    #         for col in range(cols):
+    #             visited[(row, col)] = False
+    #             dist[(row, col)] = float(inf)
+    #     stack = deque()
+    #     stack.append(tuple(start))
+    #     dist[tuple(start)] = 0
+    #     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    #     while stack:
+    #         curr_row, curr_col = stack.pop()
+    #         if curr_row == destination[0] and curr_col == destination[1]:
+    #             return dist[(curr_row, curr_col)]
+    #         for dr, dc in directions:
+    #             next_row, next_col = curr_row, curr_col
+    #             steps = 0
+    #             while (0 <= next_row + dr < rows and 
+    #                    0 <= next_col + dc < cols and 
+    #                    maze[next_row + dr][next_col + dc] == 0):
+    #                 steps += 1
+    #                 next_row += dr
+    #                 next_col += dc
+    #             dist[(next_row, next_col)] = min(dist[(curr_row, curr_col)] + steps, dist[(next_row, next_col)])
+    #             if visited[(next_row, next_col)] == False:
+    #                 stack.append((next_row, next_col))
+    #                 visited[(next_row, next_col)] = True
+    #     return -1
+
     def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
-        visited = self.dfs(maze, start)
-        distance = visited[destination[0]][destination[1]]
-        return distance if distance != math.inf else -1
-    
-    def dfs(self, maze, start):
         rows, cols = len(maze), len(maze[0])
-        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        visited = [[math.inf for col in range(cols)] for row in range(rows)]
+        visited = {}
+        dist = {}
+        
+        # Initialize visited and dist dictionaries
+        for row in range(rows):
+            for col in range(cols):
+                visited[(row, col)] = False
+                dist[(row, col)] = float('inf')
+        
         stack = deque()
-        stack.append((start[0], start[1], 0))
-        visited[start[0]][start[1]] = 0
+        stack.append(tuple(start))
+        dist[tuple(start)] = 0
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        
         while stack:
-            x, y, dist = stack.pop()
-            for (dx, dy) in directions:
-                nx, ny, d = x, y, dist
-                while ((0 <= nx + dx < rows) and (0 <= ny + dy < cols) 
-                  and (maze[nx + dx][ny + dy] == 0)):
-                    nx += dx
-                    ny += dy
-                    d += 1
-                if d < visited[nx][ny]:
-                    visited[nx][ny] = d
-                    stack.append((nx, ny, d))
-        return visited
+            curr_row, curr_col = stack.pop()
+            
+            for dr, dc in directions:
+                next_row, next_col = curr_row, curr_col
+                steps = 0
+                
+                # Roll the ball in the current direction until hitting a wall or boundary
+                while (0 <= next_row + dr < rows and 
+                       0 <= next_col + dc < cols and 
+                       maze[next_row + dr][next_col + dc] == 0):
+                    next_row += dr
+                    next_col += dc
+                    steps += 1
+                
+                # Update the distance if a shorter path is found
+                if dist[(curr_row, curr_col)] + steps < dist[(next_row, next_col)]:
+                    dist[(next_row, next_col)] = dist[(curr_row, curr_col)] + steps
+                    stack.append((next_row, next_col))
+        
+        # Return the shortest distance to the destination
+        return dist[tuple(destination)] if dist[tuple(destination)] != float('inf') else -1
+        
