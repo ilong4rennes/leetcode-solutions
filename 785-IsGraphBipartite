@@ -1,0 +1,21 @@
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        UNCOLORED, RED, BLUE = 0, 1, 2
+        node_colors = [UNCOLORED] * len(graph)
+        for node in range(len(graph)):
+            if node_colors[node] == UNCOLORED:
+                bipartite = self.dfs(graph, node_colors, node, RED)
+                if not bipartite: return False
+        return True
+    
+    def dfs(self, graph, node_colors, node, color):
+        UNCOLORED, RED, BLUE = 0, 1, 2
+        node_colors[node] = color
+        for neighbor in graph[node]:
+            if node_colors[neighbor] == color:
+                return False
+            elif node_colors[neighbor] == UNCOLORED:
+                new_color = BLUE if color == RED else RED
+                if not self.dfs(graph, node_colors, neighbor, new_color):
+                    return False
+        return True
