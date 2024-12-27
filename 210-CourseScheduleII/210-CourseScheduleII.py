@@ -14,7 +14,6 @@ class Solution:
         for course in range(numCourses):
             if in_degree[course] == 0:
                 queue.appendleft(course)
-        # if not queue: return result
 
         # 3. Process nodes with 0 in-degree
         while queue:
