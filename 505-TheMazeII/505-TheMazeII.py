@@ -1,11 +1,11 @@
 class Solution:
     def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
         rows, cols = len(maze), len(maze[0])
-        visited = {}
+        # visited = {}
         dist = {}
         for row in range(rows):
             for col in range(cols):
-                visited[(row, col)] = False
+                # visited[(row, col)] = False
                 dist[(row, col)] = float('inf')
         stack = deque()
         stack.append(tuple(start))
