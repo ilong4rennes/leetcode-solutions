@@ -1,28 +1,28 @@
 class Solution:
-    def shortestDistance(self, maze: List[List[int]], ball: List[int], hole: List[int]) -> int:
+    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
         rows, cols = len(maze), len(maze[0])
-        visited = {}
+        dist = {}
         for row in range(rows):
             for col in range(cols):
-                visited[(row, col)] = float('inf')
-        visited[tuple(ball)] = 0
+                dist[(row, col)] = float('inf')
         stack = deque()
-        stack.append((ball[0], ball[1], 0))
+        stack.append((start[0], start[1], 0))
+        dist[tuple(start)] = 0
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
         while stack:
-            curr_row, curr_col, dist = stack.pop()
+            curr_row, curr_col, distance = stack.pop()
             for dr, dc in directions:
-                next_row, next_col, next_dist = curr_row, curr_col, dist
-                while (0 <= next_row + dr < rows and
-                       0 <= next_col + dc < cols and
+                next_row, next_col, new_dist = curr_row, curr_col, distance
+                while (0 <= next_row + dr < rows and 
+                       0 <= next_col + dc < cols and 
                        maze[next_row + dr][next_col + dc] == 0):
-                       next_row += dr
-                       next_col += dc
-                       next_dist += 1
-                if next_dist < visited[(next_row, next_col)]:
-                    visited[(next_row, next_col)] = next_dist
-                    stack.append((next_row, next_col, next_dist))
-        if visited[(hole[0], hole[1])] == float('inf'):
-            return -1
-        else:
-            return visited[(hole[0], hole[1])]
+                    new_dist += 1
+                    next_row += dr
+                    next_col += dc
+                if new_dist < dist[(next_row, next_col)]:
+                    dist[(next_row, next_col)] = new_dist
+                    stack.append((next_row, next_col, new_dist))
+
+        return dist[tuple(destination)] if dist[tuple(destination)] != float('inf') else -1
+        
