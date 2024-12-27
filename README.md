@@ -59,7 +59,7 @@
 ## Graph Search
 
 ### Topological sorting
-- [ ] LC207: Course Schedule
+- [x] LC207: Course Schedule
 - [ ] LC210: Course Schedule II
 
 ### Traversal
