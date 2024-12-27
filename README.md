@@ -1,5 +1,6 @@
 # Leetcode Problems
 
+# Data Structures
 ## Hashmap
 ### Use hash to solve problems
 - [x] 1160: Find Words That Can Be Formed By Characters
@@ -44,6 +45,7 @@
 - [ ] 480
 - [ ] 264
 
+# Algorithms
 ## Sorting
 - [x] 912: Sort an Array (mergesort and quicksort)
 - [x] 75: Sort Colors
