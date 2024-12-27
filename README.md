@@ -67,7 +67,8 @@
 - [x] LC743: Network Delay Time
 
 ### DFS(Matrix)
-- [x] LC505: The Maze II
+- [x] LC490: The Maze I
+- [ ] LC505: The Maze II
 - [ ] LC499: The Maze III
 - [ ] LC463: Island Perimeter
 
