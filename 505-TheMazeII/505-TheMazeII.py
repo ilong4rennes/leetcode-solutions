@@ -1,26 +1,28 @@
 class Solution:
-    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
-        visited = self.dfs(maze, start)
-        distance = visited[destination[0]][destination[1]]
-        return distance if distance != math.inf else -1
-    
-    def dfs(self, maze, start):
+    def shortestDistance(self, maze: List[List[int]], ball: List[int], hole: List[int]) -> int:
         rows, cols = len(maze), len(maze[0])
-        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        visited = [[math.inf for col in range(cols)] for row in range(rows)]
+        visited = {}
+        for row in range(rows):
+            for col in range(cols):
+                visited[(row, col)] = float('inf')
+        visited[tuple(ball)] = 0
         stack = deque()
-        stack.append((start[0], start[1], 0))
-        visited[start[0]][start[1]] = 0
+        stack.append((ball[0], ball[1], 0))
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         while stack:
-            x, y, dist = stack.pop()
-            for (dx, dy) in directions:
-                nx, ny, d = x, y, dist
-                while ((0 <= nx + dx < rows) and (0 <= ny + dy < cols) 
-                  and (maze[nx + dx][ny + dy] == 0)):
-                    nx += dx
-                    ny += dy
-                    d += 1
-                if d < visited[nx][ny]:
-                    visited[nx][ny] = d
-                    stack.append((nx, ny, d))
-        return visited
+            curr_row, curr_col, dist = stack.pop()
+            for dr, dc in directions:
+                next_row, next_col, next_dist = curr_row, curr_col, dist
+                while (0 <= next_row + dr < rows and
+                       0 <= next_col + dc < cols and
+                       maze[next_row + dr][next_col + dc] == 0):
+                       next_row += dr
+                       next_col += dc
+                       next_dist += 1
+                if next_dist < visited[(next_row, next_col)]:
+                    visited[(next_row, next_col)] = next_dist
+                    stack.append((next_row, next_col, next_dist))
+        if visited[(hole[0], hole[1])] == float('inf'):
+            return -1
+        else:
+            return visited[(hole[0], hole[1])]
