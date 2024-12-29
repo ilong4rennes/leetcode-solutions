@@ -31,7 +31,7 @@
 - [ ] LC278: First Bad Version
 
 ### Trie
-- [ ] LC208: Implement Trie
+- [x] LC208: Implement Trie
 - [ ] LC1804: Implement Trie II
 - [ ] LC648: Replace Words
 - [ ] LC692: Top K Frequent Words
