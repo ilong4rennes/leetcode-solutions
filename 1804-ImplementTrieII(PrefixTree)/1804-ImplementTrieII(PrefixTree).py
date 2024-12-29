@@ -1,55 +1,59 @@
 class Trie:
+
     def __init__(self):
         self.children = {}
-        self.is_end = False
+        self.prefix_count = 0
         self.count = 0
-        self.prefix_count = 0  # Add prefix_count to track words passing through this node
 
     def insert(self, word: str) -> None:
         node = self
         for c in word:
             if c not in node.children:
-                node.children[c] = Trie()  # Create a new Trie node
+                node.children[c] = Trie()
             node = node.children[c]
-            node.prefix_count += 1  # Increment prefix count
-        node.is_end = True
-        node.count += 1  # Increment word count
+            node.prefix_count += 1
+        node.count += 1
 
     def countWordsEqualTo(self, word: str) -> int:
         node = self
         for c in word:
             if c not in node.children:
-                return 0  # Word not found
+                return 0
             node = node.children[c]
-        return node.count  # Return the count of the word
+        return node.count
 
     def countWordsStartingWith(self, prefix: str) -> int:
         node = self
         for c in prefix:
             if c not in node.children:
-                return 0  # Prefix not found
+                return 0
             node = node.children[c]
-        return node.prefix_count  # Return the prefix count
+        return node.prefix_count
 
     def erase(self, word: str) -> None:
-        stack = []  # To keep track of nodes and characters
         node = self
-
-        # Traverse the Trie and populate the stack
-        for char in word:
-            if char not in node.children:
-                return  # Word doesn't exist in the Trie
-            stack.append((node, char))  # Save current node and character
-            node = node.children[char]
-
-        # Decrease the word count at the last node
+        stack = [] # (parent_node, char in children)
+        for c in word:
+            if c not in node.children:
+                return
+            stack.append((node, c))
+            node = node.children[c]
         node.count -= 1
-        if node.count < 0:
-            node.count = 0  # Ensure count doesn't go below 0
+        if node.count < 0: node.count = 0
 
-        # Decrease prefix counts and remove nodes if necessary
+        # Update prefix_count
         while stack:
-            parent, char = stack.pop()
-            parent.children[char].prefix_count -= 1
-            if parent.children[char].prefix_count == 0 and parent.children[char].count == 0:
-                del parent.children[char]  # Remove the child node
+            parent_node, char = stack.pop()
+            parent_node.children[char].prefix_count -= 1
+            if (parent_node.children[char].prefix_count == 0 and
+                parent_node.children[char].count == 0):
+                    del parent_node.children[char]
+        
+
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.countWordsEqualTo(word)
+# param_3 = obj.countWordsStartingWith(prefix)
+# obj.erase(word)
