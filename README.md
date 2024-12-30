@@ -34,7 +34,7 @@
 - [x] LC208: Implement Trie
 - [x] LC1804: Implement Trie II
 - [x] LC648: Replace Words
-- [ ] LC692: Top K Frequent Words
+- [x] LC692: Top K Frequent Words
 - [ ] LC745: Prefix and Suffix Search
 
 ## Hashmap
