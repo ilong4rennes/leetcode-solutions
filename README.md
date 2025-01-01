@@ -18,7 +18,7 @@
 
 ## Tree
 ### Tree Traversal
-- [ ] LC106: Construct Binary Tree from Inorder and Postorder Traversal
+- [x] LC106: Construct Binary Tree from Inorder and Postorder Traversal
 - [ ] LC107: Binary Tree Level Order Traversal II
 - [ ] LC337: House Robber III
 - [ ] LC1245: Tree Diameter
