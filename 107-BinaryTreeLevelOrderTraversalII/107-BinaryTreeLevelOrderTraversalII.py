@@ -7,8 +7,8 @@
 class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root: return []
-        queue = deque([root])
         result = []
+        queue = deque([root])
         while queue:
             level = []
             for _ in range(len(queue)):
