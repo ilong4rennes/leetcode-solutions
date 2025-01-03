@@ -24,7 +24,7 @@
 - [ ] LC1245: Tree Diameter
 
 ### BST
-- [ ] LC700: Search in a Binary Search Tree
+- [x] LC700: Search in a Binary Search Tree
 - [ ] LC701: Insert Into a Binary Search Tree
 - [ ] LC33: Search in Rotated Array
 - [ ] LC658: Find K Closest Element
