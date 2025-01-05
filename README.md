@@ -28,7 +28,7 @@
 - [x] LC701: Insert Into a Binary Search Tree
 - [x] LC33: Search in Rotated Array
 - [x] LC658: Find K Closest Element
-- [ ] LC278: First Bad Version
+- [x] LC278: First Bad Version
 
 ### Trie
 - [x] LC208: Implement Trie
