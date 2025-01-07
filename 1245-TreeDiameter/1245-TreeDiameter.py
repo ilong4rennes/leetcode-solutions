@@ -1,0 +1,1 @@
+bfs = {(v, u) for u, pre in bfs for v in graph[u] if v != pre}
