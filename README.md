@@ -1,6 +1,7 @@
 # Leetcode Problems
 - **Data Structures**: Array / Linked List, Tree, Hashmap (Set / Map), Queue & Stack, Heap & PQ
-- **Algorithms**: Sorting, Graph Search
+- **Algorithms**: Sorting, Graph Search, Backtracking, Divide and Conquer, Dynamic Programming
+
 
 # Data Structures
 
@@ -113,4 +114,6 @@
 ### DFS(Graph)
 - [x] LC785: Is Graph Bipartite?
 
-
+## Backtracking
+## Divide and Conquer
+## Dynamic Programming
