@@ -7,21 +7,22 @@
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
         self.memo = {}
-        return max(self.DFS(root, True, 0),
-                   self.DFS(root, False, 0))
+        return max(self.DFS(root, True), self.DFS(root, False))
         
-    def DFS(self, root, robbed, maxMoney):
-        if root == None: return maxMoney
+    def DFS(self, root, robbed):
+        if not root: return 0
         if (root, robbed) in self.memo:
             return self.memo[(root, robbed)]
-        if robbed: 
-            maxMoney += root.val
-            left = self.DFS(root.left, False, 0)
-            right = self.DFS(root.right, False, 0)
+        if robbed:
+            currVal = root.val
+            left = self.DFS(root.left, False)
+            right = self.DFS(root.right, False)
         else:
-            left = max(self.DFS(root.left, True, 0), 
-                       self.DFS(root.left, False, 0))
-            right = max(self.DFS(root.right, True, 0), 
-                        self.DFS(root.right, False, 0))
-        self.memo[(root, robbed)] = maxMoney + left + right
-        return self.memo[(root, robbed)]
+            currVal = 0
+            left = max(self.DFS(root.left, True), 
+                       self.DFS(root.left, False))
+            right = max(self.DFS(root.right, True),
+                        self.DFS(root.right, False))
+        if (root, robbed) not in self.memo:
+            self.memo[(root, robbed)] = currVal + left + right
+        return currVal + left + right
