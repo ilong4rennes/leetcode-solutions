@@ -1,4 +1,3 @@
-import heapq
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         heap = [1]
@@ -6,11 +5,11 @@ class Solution:
         seen = set()
         seen.add(1)
         factors = [2, 3, 5]
-        for _ in range(n):
+        for i in range(n):
             minElem = heapq.heappop(heap)
             for factor in factors:
-                newNum = minElem * factor
-                if newNum not in seen:
-                    seen.add(newNum)
-                    heapq.heappush(heap, newNum)
+                newElem = minElem * factor
+                if newElem not in seen:
+                    heapq.heappush(heap, newElem)
+                    seen.add(newElem)
         return minElem
