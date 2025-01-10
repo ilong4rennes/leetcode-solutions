@@ -115,5 +115,21 @@
 - [x] LC785: Is Graph Bipartite?
 
 ## Backtracking
+- [x] Permutations: https://leetcode.com/problems/permutations/
+- [ ] Permutations II: https://leetcode.com/problems/permutations-ii/
+- [ ] Combinations: https://leetcode.com/problems/combinations/
+- [ ] Combination Sum: https://leetcode.com/problems/combination-sum/
+- [ ] Combination Sum II: https://leetcode.com/problems/combination-sum-ii/submissions/
+- [ ] Combination Sum III: https://leetcode.com/problems/combination-sum-iii/
+- [ ] Subsets: https://leetcode.com/problems/subsets/submissions/
+- [ ] Subsets II: https://leetcode.com/problems/subsets-ii/submissions/
+- [ ] Palindrome Partitioning: https://leetcode.com/problems/palindrome-partitioning/submissions/
+- [ ] Generate parenthesis: https://leetcode.com/problems/generate-parentheses/
+- [ ] Letter Combinations: https://leetcode.com/problems/letter-combinations-of-a-phone-number/solution/
+- [ ] Word search: https://leetcode.com/problems/word-search/
+- [ ] N-Queens: https://leetcode.com/problems/n-queens/
+- [ ] Sudoku solver: https://leetcode.com/problems/sudoku-solver/
+- [ ] Word Squares: https://leetcode.com/problems/word-squares/
+
 ## Divide and Conquer
 ## Dynamic Programming
