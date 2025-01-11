@@ -116,7 +116,7 @@
 
 ## Backtracking
 - [x] Permutations: https://leetcode.com/problems/permutations/
-- [ ] Permutations II: https://leetcode.com/problems/permutations-ii/
+- [x] Permutations II: https://leetcode.com/problems/permutations-ii/
 - [ ] Combinations: https://leetcode.com/problems/combinations/
 - [ ] Combination Sum: https://leetcode.com/problems/combination-sum/
 - [ ] Combination Sum II: https://leetcode.com/problems/combination-sum-ii/submissions/
