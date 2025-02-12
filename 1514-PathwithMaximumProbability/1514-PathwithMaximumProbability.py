@@ -9,6 +9,7 @@ class Solution:
         while pq:
             curr_prob, curr_node = heapq.heappop(pq)
             curr_prob = -curr_prob
+            if curr_prob < probs[curr_node]: continue
             for neighbor, prob in adj_list[curr_node]:
                 new_prob = curr_prob * prob
                 if new_prob > probs[neighbor]:
