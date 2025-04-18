@@ -1,4 +1,4 @@
-# Last updated: 4/18/2025, 4:38:55 AM
+# Last updated: 4/18/2025, 4:40:10 AM
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         max_streak = 0
