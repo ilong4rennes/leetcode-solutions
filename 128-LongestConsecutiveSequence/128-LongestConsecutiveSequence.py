@@ -1,4 +1,4 @@
-# Last updated: 4/18/2025, 4:43:49 AM
+# Last updated: 4/18/2025, 4:43:55 AM
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         if nums == []: return 0
