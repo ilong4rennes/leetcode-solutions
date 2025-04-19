@@ -1,20 +1,30 @@
-# Last updated: 4/19/2025, 2:25:03 PM
+# Last updated: 4/19/2025, 2:28:12 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        graph = self.tree2graph(root)  # target is not used in tree2graph
-        visited = {node: False for node in graph}
+        graph = self.tree2graph(root)
+        visited = {node: False for node in graph} 
         queue = deque()
         queue.append(target)
-        visited[target] = True
+        visited[target] = True  
         steps = 0
         results = []
 
+        # while stack:
+        #     s = stack.pop()
+        #     for node in graph[s]:
+        #         if visited[s] is False:
+        #             stack.append(node)
+        #             visited[node] = True
+        #             if steps == k:
+        #                 results.append(node)
+        #     steps += 1
         while queue:
             if steps == k:
                 return [node.val for node in queue]
@@ -25,6 +35,7 @@ class Solution:
                         visited[neighbor] = True
                         queue.append(neighbor)
             steps += 1
+            
         return results
     
     def tree2graph(self, root):
@@ -33,8 +44,7 @@ class Solution:
         return graph
     
     def inorder_recursive(self, root, graph):
-        if not root:
-            return
+        if not root: return
         self.inorder_recursive(root.left, graph)
         if root.left:
             graph[root].append(root.left)
