@@ -1,4 +1,4 @@
-# Last updated: 4/19/2025, 2:28:12 PM
+# Last updated: 4/19/2025, 2:28:20 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -16,15 +16,6 @@ class Solution:
         steps = 0
         results = []
 
-        # while stack:
-        #     s = stack.pop()
-        #     for node in graph[s]:
-        #         if visited[s] is False:
-        #             stack.append(node)
-        #             visited[node] = True
-        #             if steps == k:
-        #                 results.append(node)
-        #     steps += 1
         while queue:
             if steps == k:
                 return [node.val for node in queue]
@@ -35,7 +26,7 @@ class Solution:
                         visited[neighbor] = True
                         queue.append(neighbor)
             steps += 1
-            
+
         return results
     
     def tree2graph(self, root):
