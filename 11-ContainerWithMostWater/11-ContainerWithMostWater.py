@@ -1,4 +1,4 @@
-# Last updated: 4/21/2025, 12:22:42 PM
+# Last updated: 4/21/2025, 12:22:47 PM
 class Solution:
     def maxArea(self, heights: List[int]) -> int:
         left, right = 0, len(heights) - 1
