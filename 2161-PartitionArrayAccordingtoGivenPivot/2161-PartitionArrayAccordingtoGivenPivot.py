@@ -1,4 +1,4 @@
-# Last updated: 4/24/2025, 10:05:14 PM
+# Last updated: 4/24/2025, 10:05:19 PM
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
         result = [0] * len(nums)
