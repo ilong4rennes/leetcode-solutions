@@ -1,3 +1,4 @@
+# Last updated: 4/27/2025, 4:21:01 PM
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         low, high = 0, len(nums) - 1
