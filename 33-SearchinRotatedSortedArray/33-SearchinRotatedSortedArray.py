@@ -1,20 +1,18 @@
-# Last updated: 4/27/2025, 4:21:01 PM
+# Last updated: 4/27/2025, 4:22:09 PM
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        low, high = 0, len(nums) - 1
-        while low <= high:
-            mid = (low + high) // 2
-            if nums[mid] == target:
-                print(f"mid {mid}")
-                return mid
-            if nums[low] <= nums[mid]: # left part sorted
-                if nums[low] <= target < nums[mid]:
-                    high = mid - 1
+        lo, hi = 0, len(nums) - 1
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if nums[mid] == target: return mid
+            elif nums[lo] <= nums[mid]: # left half is sorted
+                if nums[lo] <= target < nums[mid]:
+                    hi = mid - 1
                 else:
-                    low = mid + 1
-            else: # right part sorted
-                if nums[mid] < target <= nums[high]:
-                    low = mid + 1
+                    lo = mid + 1
+            else: # right half is sorted
+                if nums[mid] < target <= nums[hi]:
+                    lo = mid + 1
                 else:
-                    high = mid - 1
+                    hi = mid - 1
         return -1
