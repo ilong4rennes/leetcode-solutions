@@ -1,4 +1,4 @@
-# Last updated: 5/6/2025, 6:04:19 PM
+# Last updated: 5/6/2025, 6:04:24 PM
 class LRUCache:
 
     def __init__(self, capacity: int):
