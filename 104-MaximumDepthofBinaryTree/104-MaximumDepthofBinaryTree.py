@@ -1,4 +1,4 @@
-# Last updated: 5/26/2025, 11:39:13 PM
+# Last updated: 5/26/2025, 11:58:28 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -9,14 +9,15 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         depth = 0
         self.result = 0
-        self.traverse(depth, root, self.result)
+        self.traverse(depth, root)
         return self.result 
     
-    def traverse(self, depth, root, result):
+    def traverse(self, depth, root):
         if root is None: return
         depth += 1
+        
+        self.traverse(depth, root.left)
         if root.left is None and root.right is None:
             self.result = max(depth, self.result)
-        self.traverse(depth, root.left, self.result)
-        self.traverse(depth, root.right, self.result)
+        self.traverse(depth, root.right)
         depth -= 1
