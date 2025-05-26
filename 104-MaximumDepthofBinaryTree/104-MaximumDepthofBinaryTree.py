@@ -1,4 +1,4 @@
-# Last updated: 5/27/2025, 12:17:41 AM
+# Last updated: 5/27/2025, 2:20:01 AM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -6,13 +6,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        self.result = []
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.result = 0
         self.traverse(root)
         return self.result
     
     def traverse(self, node):
-        if not node: return 
-        self.traverse(node.left)
-        self.traverse(node.right)
-        self.result.append(node.val)
+        if not node: return 0
+        leftDepth = self.traverse(node.left)
+        rightDepth = self.traverse(node.right)
+        maxDepth = max(leftDepth, rightDepth)
+        maxDiameter = leftDepth + rightDepth
+        self.result = max(self.result, maxDiameter)
+        return maxDepth + 1
