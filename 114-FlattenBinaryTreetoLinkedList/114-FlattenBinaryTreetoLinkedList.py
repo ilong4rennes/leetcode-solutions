@@ -1,4 +1,4 @@
-# Last updated: 5/28/2025, 9:47:02 PM
+# Last updated: 5/28/2025, 10:58:05 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -13,12 +13,11 @@ class Solution:
         if not root: return
         self.flatten(root.left)
         self.flatten(root.right)
-        print(root.val)
         left = root.left
         right = root.right
         root.left = None
         root.right = left
         p = root
-        while p.right:  
+        while p.right:
             p = p.right
         p.right = right
