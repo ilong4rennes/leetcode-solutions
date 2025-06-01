@@ -1,4 +1,4 @@
-# Last updated: 6/1/2025, 5:47:56 PM
+# Last updated: 6/1/2025, 6:00:52 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -24,7 +24,7 @@ class Solution:
         leftLen = rootId - inStart
         
         root.left = self.build(preorder, preStart + 1, preStart + leftLen, 
-                               inorder, inStart, inStart + leftLen - 1)
+                               inorder, inStart, rootId - 1)
         root.right = self.build(preorder, preStart + leftLen + 1, preEnd, 
                                 inorder, rootId + 1, inEnd)
         return root
