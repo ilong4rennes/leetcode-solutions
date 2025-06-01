@@ -1,4 +1,4 @@
-# Last updated: 6/1/2025, 4:42:38 PM
+# Last updated: 6/1/2025, 5:47:56 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -6,18 +6,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def __init__(self):
+        self.val2ind = {}
+
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        root = self.build(preorder, inorder)
+        for i, v in enumerate(inorder):
+            self.val2ind[v] = i
+        root = self.build(preorder, 0, len(preorder) - 1, inorder, 0, len(inorder) - 1)
         return root
     
-    def build(self, preorder, inorder):
-        if not preorder: return
-        rootVal = preorder[0]
+    def build(self, preorder, preStart, preEnd, inorder, inStart, inEnd):
+        if preStart > preEnd or inStart > inEnd:
+            return None
+        rootVal = preorder[preStart]
         root = TreeNode(rootVal)
-        rootId = inorder.index(rootVal)
-        inorderLeft, inorderRight = inorder[:rootId], inorder[rootId + 1:]
-        leftLen, rightLen = len(inorderLeft), len(inorderRight)
-        preorderLeft, preorderRight = preorder[1 : 1 + leftLen], preorder[1 + leftLen :]
-        root.left = self.build(preorderLeft, inorderLeft)
-        root.right = self.build(preorderRight, inorderRight)
+        rootId = self.val2ind[rootVal]
+        leftLen = rootId - inStart
+        
+        root.left = self.build(preorder, preStart + 1, preStart + leftLen, 
+                               inorder, inStart, inStart + leftLen - 1)
+        root.right = self.build(preorder, preStart + leftLen + 1, preEnd, 
+                                inorder, rootId + 1, inEnd)
         return root
