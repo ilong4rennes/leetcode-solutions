@@ -1,4 +1,4 @@
-# Last updated: 6/2/2025, 3:53:40 PM
+# Last updated: 6/2/2025, 5:53:01 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -7,21 +7,24 @@
 #         self.right = right
 class Solution:
     def __init__(self):
-        self.val2ind = dict()
+        self.val2ind = {}
 
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-        for i in range(len(inorder)):
-            self.val2ind[inorder[i]] = i
-        return self.build(inorder, 0, len(inorder) - 1, postorder, 0, len(postorder) - 1)
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        for i in range(len(postorder)):
+            self.val2ind[postorder[i]] = i
+        return self.build(preorder, 0, len(preorder) - 1, postorder, 0, len(postorder) - 1)
     
-    def build(self, inorder, inStart, inEnd, postorder, postStart, postEnd):
-        if inStart > inEnd or postStart > postEnd: return 
-        rootVal = postorder[postEnd]
+    def build(self, preorder, preStart, preEnd, postorder, postStart, postEnd):
+        if preStart > preEnd or postStart > postEnd: return
+        if preStart == preEnd:
+            return TreeNode(preorder[preStart])
+        rootVal = preorder[preStart]
         root = TreeNode(rootVal)
-        rootId = self.val2ind[rootVal]
-        leftLen = rootId - inStart
-        root.left = self.build(inorder, inStart, inStart + leftLen - 1,
-                               postorder, postStart, postStart + leftLen - 1)
-        root.right = self.build(inorder, rootId + 1, inEnd, 
-                                postorder, postStart + leftLen, postEnd - 1)
+        leftroot = preorder[preStart + 1]
+        lrIndex = self.val2ind[leftroot]
+        leftLen = lrIndex - postStart + 1
+        root.left = self.build(preorder, preStart + 1, preStart + leftLen,
+                               postorder, postStart, lrIndex)
+        root.right = self.build(preorder, preStart + leftLen + 1, preEnd, 
+                                postorder, lrIndex + 1, postEnd - 1)
         return root
