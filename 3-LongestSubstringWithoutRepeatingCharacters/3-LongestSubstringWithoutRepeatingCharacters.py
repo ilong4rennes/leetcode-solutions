@@ -1,4 +1,4 @@
-# Last updated: 6/29/2025, 4:21:02 PM
+# Last updated: 6/29/2025, 4:21:29 PM
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         window = defaultdict(int)
