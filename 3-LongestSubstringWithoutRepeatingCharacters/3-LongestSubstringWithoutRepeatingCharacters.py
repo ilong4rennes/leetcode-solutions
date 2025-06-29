@@ -1,9 +1,8 @@
-# Last updated: 6/29/2025, 4:19:38 PM
+# Last updated: 6/29/2025, 4:19:52 PM
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         window = defaultdict(int)
-        maxLen = 0
-        left, right = 0, 0
+        maxLen, left, right = 0, 0, 0
         while right < len(s):
             c = s[right]
             right += 1
