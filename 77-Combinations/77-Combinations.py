@@ -1,15 +1,17 @@
+# Last updated: 7/15/2025, 2:30:46 AM
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        options = [i for i in range(1, n + 1)]
-        result = []
-        self.backtrack([], options, result, n, k)
-        return result
-        
-    def backtrack(self, path, options, result, n, k):
-        if len(path) == k:
-            result.append(path[:])
+        self.result = []
+        self.track = []
+        nums = [i for i in range(1, n + 1)]
+        self.backtrack(nums, k, 1)
+        return self.result
+    
+    def backtrack(self, nums, k, start):
+        if len(self.track) == k:
+            self.result.append(self.track.copy())
             return
-        for id in range(len(options)):
-            path.append(options[id])
-            self.backtrack(path, options[id + 1:], result, n - 1, k)
-            path.pop()
+        for i in range(start, len(nums) + 1):
+            self.track.append(i)
+            self.backtrack(nums, k, i + 1)
+            self.track.pop()
