@@ -1,4 +1,4 @@
-# Last updated: 7/16/2025, 1:33:37 AM
+# Last updated: 7/30/2025, 4:31:08 AM
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         self.result = []
@@ -11,12 +11,13 @@ class Solution:
     def backtrack(self, nums):
         if len(self.track) == len(nums):
             self.result.append(self.track.copy())
-        for i in range(0, len(nums)):
-            if self.used[i]: continue
-            if i > 0 and nums[i] == nums[i - 1] and not self.used[i - 1]: continue
-
-            self.track.append(nums[i])
-            self.used[i] = True
-            self.backtrack(nums)
-            self.used[i] = False
-            self.track.pop()
+            return
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i - 1] and self.used[i - 1] == False:
+                continue
+            if self.used[i] == False:
+                self.track.append(nums[i])
+                self.used[i] = True
+                self.backtrack(nums)
+                self.used[i] = False
+                self.track.pop()
