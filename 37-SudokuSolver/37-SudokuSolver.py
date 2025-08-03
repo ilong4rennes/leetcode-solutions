@@ -1,4 +1,4 @@
-# Last updated: 8/3/2025, 4:50:10 AM
+# Last updated: 8/3/2025, 4:54:06 AM
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
@@ -46,15 +46,15 @@ class Solution:
             board[row][col] = num
             self.rows[row].add(num)
             self.cols[col].add(num)
-            self.boxes[self.getBoxIndex(row, col)].add(num)
-            
+            self.boxes[boxId].add(num)
+
             self.backtrack(index + 1, board)
             if self.found: return
             
             board[row][col] = '.'
             self.rows[row].remove(num)
             self.cols[col].remove(num)
-            self.boxes[self.getBoxIndex(row, col)].remove(num)
+            self.boxes[boxId].remove(num)
     
     def isValid(self, num, row, col, boxId):
         if num in self.rows[row]: return False
