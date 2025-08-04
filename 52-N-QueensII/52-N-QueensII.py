@@ -1,4 +1,4 @@
-# Last updated: 8/4/2025, 3:10:52 AM
+# Last updated: 8/4/2025, 3:10:55 AM
 class Solution:
     def totalNQueens(self, n: int) -> int:
         self.result = 0
