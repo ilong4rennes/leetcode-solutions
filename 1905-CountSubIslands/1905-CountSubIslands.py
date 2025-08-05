@@ -1,4 +1,4 @@
-# Last updated: 8/5/2025, 4:48:58 AM
+# Last updated: 8/5/2025, 4:49:03 AM
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         rows, cols = len(grid1), len(grid1[0])
