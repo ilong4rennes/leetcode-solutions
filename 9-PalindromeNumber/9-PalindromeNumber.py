@@ -1,12 +1,22 @@
-# Last updated: 8/5/2025, 8:28:58 PM
+# Last updated: 8/5/2025, 8:29:45 PM
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0 or (x > 0 and x%10 == 0):   # if x is negative, return False. if x is positive and last digit is 0, that also cannot form a palindrome, return False.
-            return False
+        # if the number is negative, we should return False
+        if x < 0: return False
         
-        result = 0
-        while x > result:
-            result = result * 10 + x % 10
-            x = x // 10
+        # Turn int into str first
+        x_str = str(x) # O(N)
+        
+        # Initialize two pointers, left -> first number index, right -> last number index
+        left, right = 0, len(x_str) - 1
+        
+        # loop: if left_num != right_num: return False
+        while left < right: # O(log N)
+            left_num, right_num = x_str[left], x_str[right]
+            if left_num != right_num: 
+                return False
+            left += 1
+            right -= 1
             
-        return True if (x == result or x == result // 10) else False 
+        # return True
+        return True
