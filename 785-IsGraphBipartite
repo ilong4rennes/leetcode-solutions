@@ -1,21 +1,26 @@
+# Last updated: 9/23/2025, 1:00:16 AM
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        UNCOLORED, RED, BLUE = 0, 1, 2
-        node_colors = [UNCOLORED] * len(graph)
+        self.colors = ["BLUE", "RED"]
+        self.visited = [False for _ in range(len(graph))]
         for node in range(len(graph)):
-            if node_colors[node] == UNCOLORED:
-                bipartite = self.dfs(graph, node_colors, node, RED)
-                if not bipartite: return False
+            self.visited = [False for _ in range(len(graph))]
+            self.colorGraph = [None for _ in range(len(graph))]
+            isPossible = self.traverse(graph, node, "BLUE")
+            if not isPossible: return False
         return True
-    
-    def dfs(self, graph, node_colors, node, color):
-        UNCOLORED, RED, BLUE = 0, 1, 2
-        node_colors[node] = color
-        for neighbor in graph[node]:
-            if node_colors[neighbor] == color:
-                return False
-            elif node_colors[neighbor] == UNCOLORED:
-                new_color = BLUE if color == RED else RED
-                if not self.dfs(graph, node_colors, neighbor, new_color):
+
+    def traverse(self, graph, start, color):
+        self.visited[start] = True
+        self.colorGraph[start] = color
+        neighbors = graph[start]
+        for neighbor in neighbors:
+            if not self.visited[neighbor]:
+                newColor = "RED" if color == "BLUE" else "BLUE"
+                self.traverse(graph, neighbor, newColor)
+            else:
+                if color != self.colorGraph[neighbor]:
+                    pass
+                else:
                     return False
         return True
