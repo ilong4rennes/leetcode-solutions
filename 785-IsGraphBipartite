@@ -1,4 +1,4 @@
-# Last updated: 9/23/2025, 1:00:16 AM
+# Last updated: 9/23/2025, 1:04:13 AM
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         self.colors = ["BLUE", "RED"]
