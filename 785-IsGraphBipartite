@@ -1,13 +1,13 @@
-# Last updated: 9/23/2025, 1:04:13 AM
+# Last updated: 9/23/2025, 1:08:16 AM
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         self.colors = ["BLUE", "RED"]
         self.visited = [False for _ in range(len(graph))]
+        self.colorGraph = [None for _ in range(len(graph))]
         for node in range(len(graph)):
-            self.visited = [False for _ in range(len(graph))]
-            self.colorGraph = [None for _ in range(len(graph))]
-            isPossible = self.traverse(graph, node, "BLUE")
-            if not isPossible: return False
+            if not self.visited[node]:
+                isPossible = self.traverse(graph, node, "BLUE")
+                if not isPossible: return False
         return True
 
     def traverse(self, graph, start, color):
@@ -17,7 +17,8 @@ class Solution:
         for neighbor in neighbors:
             if not self.visited[neighbor]:
                 newColor = "RED" if color == "BLUE" else "BLUE"
-                self.traverse(graph, neighbor, newColor)
+                isPossible = self.traverse(graph, neighbor, newColor)
+                if not isPossible: return False
             else:
                 if color != self.colorGraph[neighbor]:
                     pass
