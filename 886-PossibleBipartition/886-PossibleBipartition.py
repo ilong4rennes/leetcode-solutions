@@ -1,4 +1,4 @@
-# Last updated: 9/23/2025, 2:18:08 AM
+# Last updated: 9/23/2025, 2:18:21 AM
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
         graph = self.buildGraph(n, dislikes)
