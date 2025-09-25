@@ -1,12 +1,18 @@
-# Last updated: 9/24/2025, 9:31:06 PM
+# Last updated: 9/24/2025, 9:35:28 PM
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         """
         Do not return anything, modify board in-place instead.
         """
+        rows, cols = len(board), len(board[0])
         self.changeBorderCell(board)
-        self.replaceCell(board, "O", "O", "X")
-        self.replaceCell(board, "#", "#", "O")
+        for r in range(rows):
+            for c in range(cols):
+                if board[r][c] == "O":
+                    board[r][c] = "X"
+                elif board[r][c] == "#":
+                    board[r][c] = "O"
+
     
     def changeBorderCell(self, board):
         rows, cols = len(board), len(board[0])
