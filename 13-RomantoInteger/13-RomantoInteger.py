@@ -1,7 +1,26 @@
-# Last updated: 9/25/2025, 2:26:17 AM
+# Last updated: 9/25/2025, 2:27:32 AM
+values = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+}
+
+
 class Solution:
     def romanToInt(self, s: str) -> int:
-        
-        return (s.count("I") + (5 * s.count("V")) + (10 * s.count("X")) + (50 * s.count("L")) + (100 * s.count("C")) + (
-                    500 * s.count("D")) + (1000 * s.count("M")) - (2 * s.count("IV")) - (2 * s.count("IX")) - (
-                            20 * s.count("XL")) - (20 * s.count("XC")) - (200 * s.count("CD")) - (200 * s.count("CM")))
+        total = 0
+        i = 0
+        while i < len(s):
+            # If this is the subtractive case.
+            if i + 1 < len(s) and values[s[i]] < values[s[i + 1]]:
+                total += values[s[i + 1]] - values[s[i]]
+                i += 2
+            # Else this is NOT the subtractive case.
+            else:
+                total += values[s[i]]
+                i += 1
+        return total
