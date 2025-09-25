@@ -1,4 +1,4 @@
-# Last updated: 9/24/2025, 9:35:28 PM
+# Last updated: 9/24/2025, 9:35:41 PM
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         """
@@ -26,13 +26,6 @@ class Solution:
                 self.backtrack(board, 0, col, "O", "#")  
             if board[rows - 1][col] == "O":
                 self.backtrack(board, rows - 1, col, "O", "#")
-    
-    def replaceCell(self, board, orig, _from, _to):
-        rows, cols = len(board), len(board[0])
-        for row in range(rows):
-            for col in range(cols):
-                if board[row][col] == orig:
-                    self.backtrack(board, row, col, _from, _to)
     
     def backtrack(self, board, r, c, _from, _to):
         rows, cols = len(board), len(board[0])
