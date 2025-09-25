@@ -1,7 +1,19 @@
-# Last updated: 9/25/2025, 2:28:31 AM
+# Last updated: 9/25/2025, 2:29:13 AM
 class Solution:
     def mySqrt(self, x: int) -> int:
-        root = 1
-        while (x - root ** 2) >= 0:
-            root += 1
-        return root - 1
+        if x < 2:
+            return x
+
+        left, right = 2, x // 2
+
+        while left <= right:
+            pivot = left + (right - left) // 2
+            num = pivot * pivot
+            if num > x:
+                right = pivot - 1
+            elif num < x:
+                left = pivot + 1
+            else:
+                return pivot
+
+        return right
