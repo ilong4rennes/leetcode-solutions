@@ -1,4 +1,4 @@
-# Last updated: 10/4/2025, 4:54:42 PM
+# Last updated: 10/4/2025, 4:54:54 PM
 class Solution:
     class State:
         def __init__(self, node, distFromStart):
