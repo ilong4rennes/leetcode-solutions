@@ -1,4 +1,4 @@
-# Last updated: 10/5/2025, 6:36:06 PM
+# Last updated: 10/5/2025, 7:11:16 PM
 class Solution:
     class State:
         def __init__(self, node, probFromStart):
@@ -16,9 +16,9 @@ class Solution:
             state = heapq.heappop(pq)
             curNode = state.node
             curProbFromStart = state.probFromStart
-            if probTo[curNode] != -1: continue
             if curNode == end_node:
                 return curProbFromStart
+            if probTo[curNode] != -1: continue
             probTo[curNode] = curProbFromStart
             for neighbor in graph[curNode]:
                 nextNode, prob = neighbor[0], neighbor[1]
