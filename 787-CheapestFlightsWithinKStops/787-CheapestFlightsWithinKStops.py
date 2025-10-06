@@ -1,4 +1,4 @@
-# Last updated: 10/5/2025, 8:01:05 PM
+# Last updated: 10/5/2025, 8:06:40 PM
 class Solution:
     class State:
         def __init__(self, node, priceFromStart, stopFromStart):
@@ -22,7 +22,7 @@ class Solution:
             
             if curStopFromStart > k: continue
             if curNode == dst: return curPriceFromStart
-            if priceTo[curNode] != -1 and curStopFromStart >= stopTo[curNode]: continue
+            if curPriceFromStart >= priceTo[curNode] and curStopFromStart >= stopTo[curNode]: continue
             
             # priceTo[curNode] = curPriceFromStart
             # stopTo[curNode] = curStopFromStart
