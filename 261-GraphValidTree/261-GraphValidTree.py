@@ -1,4 +1,4 @@
-# Last updated: 10/7/2025, 1:46:54 PM
+# Last updated: 10/7/2025, 1:47:44 PM
 class Solution:
     class UF:
         def __init__(self, n):
@@ -29,11 +29,10 @@ class Solution:
         uf = self.UF(n)
         for edge in edges:
             node1, node2 = edge
-            root1, root2 = uf.find(node1), uf.find(node2)
-            if root1 != root2:
-                uf.union(node1, node2)
-            else: 
+            if uf.connected(node1, node2):
                 return False
+            else: 
+                uf.union(node1, node2)
         return True if uf.count() == 1 else False
 
 
