@@ -1,4 +1,4 @@
-# Last updated: 10/8/2025, 4:11:30 AM
+# Last updated: 10/8/2025, 4:11:41 AM
 class Solution:
     class UF:
         def __init__(self, n):
@@ -39,15 +39,15 @@ class Solution:
                 graph.append((id1, id2, cost))
         graph.sort(key=lambda x:x[2])
         mst = 0
-        # numNode = 1 
+        numNode = 1 
         for _from, _to, cost in graph:
-            # if numNode == n:
-            #     return mst
+            if numNode == n:
+                return mst
             if uf.connected(_from, _to):
                 continue
             else:
                 uf.union(_from, _to)
                 mst += cost
-                # numNode += 1
+                numNode += 1
         return mst
         
