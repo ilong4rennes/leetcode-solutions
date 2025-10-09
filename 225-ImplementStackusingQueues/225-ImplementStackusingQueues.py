@@ -1,4 +1,4 @@
-# Last updated: 10/9/2025, 1:29:48 AM
+# Last updated: 10/9/2025, 1:30:22 AM
 class MyStack:
 
     def __init__(self):
@@ -14,8 +14,8 @@ class MyStack:
         while size > 2:
             self.queue.append(self.queue.popleft())
             size -= 1
-        self.top_elem = self.queue[0]
-        self.queue.append(self.queue.popleft())
+        self.top_elem = self.queue.popleft()
+        self.queue.append(self.top_elem)
         return self.queue.popleft()
 
     def top(self) -> int:
