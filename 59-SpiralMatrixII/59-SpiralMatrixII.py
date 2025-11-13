@@ -1,30 +1,30 @@
-# Last updated: 3/31/2025, 11:50:06 PM
+# Last updated: 11/12/2025, 9:00:19 PM
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
-        if n == 1: return [[1]]
-        M = [[0] * n for _ in range(n)]
-        minRow, minCol, maxRow, maxCol = 0, 0, n - 1, n - 1
+        matrix = [[0] * n for _ in range(n)]
         num = 1
-        while (minRow <= maxRow) and (minCol <= maxCol):
-            for c in range(minCol, maxCol + 1):
-                M[minRow][c] = num
-                num += 1
-            minRow += 1
-            
-            for r in range(minRow, maxRow + 1):
-                M[r][maxCol] = num
-                num += 1
-            maxCol -= 1
+        upper, lower = 0, n - 1
+        left, right = 0, n - 1
 
-            for c in range(maxCol, minCol - 1, -1):
-                M[maxRow][c] = num
+        while num <= n * n:
+            for col in range(left, right + 1):
+                matrix[upper][col] = num
                 num += 1
-            maxRow -= 1
+            upper += 1
 
-            for r in range(maxRow, minRow - 1, -1):
-                M[r][minCol] = num 
+            for row in range(upper, lower + 1):
+                matrix[row][right] = num
                 num += 1
-            minCol += 1
+            right -= 1
 
-        
-        return M
+            for col in range(right, left - 1, -1):
+                matrix[lower][col] = num
+                num += 1
+            lower -= 1
+
+            for row in range(lower, upper - 1, -1):
+                matrix[row][left] = num
+                num += 1
+            left += 1
+
+        return matrix                
