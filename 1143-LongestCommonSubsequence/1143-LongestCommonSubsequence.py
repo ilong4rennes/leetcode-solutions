@@ -1,4 +1,4 @@
-# Last updated: 1/19/2026, 11:29:43 PM
+# Last updated: 1/19/2026, 11:29:49 PM
 1class Solution:
 2    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
 3        self.memo = [[-174] * (len(text2) + 1) for _ in range(len(text1) + 1)]
