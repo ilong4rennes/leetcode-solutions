@@ -1,4 +1,4 @@
-# Last updated: 1/20/2026, 1:58:26 AM
+# Last updated: 1/20/2026, 1:58:29 AM
 1class Solution:
 2    def minimumDeleteSum(self, s1: str, s2: str) -> int:
 3        self.memo = [[-174] * (len(s2) + 1) for _ in range(len(s1) + 1)]
