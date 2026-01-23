@@ -1,4 +1,4 @@
-# Last updated: 1/23/2026, 4:52:31 AM
+# Last updated: 1/23/2026, 4:57:01 AM
 1class Solution:
 2    def findTargetSumWays(self, nums: List[int], target: int) -> int:
 3        total_sum = sum(nums)
