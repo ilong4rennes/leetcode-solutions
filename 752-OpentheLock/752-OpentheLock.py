@@ -1,4 +1,4 @@
-# Last updated: 1/27/2026, 11:45:10 PM
+# Last updated: 1/27/2026, 11:45:14 PM
 1class Solution:
 2    def openLock(self, deadends: List[str], target: str) -> int:
 3        initial = '0000'
