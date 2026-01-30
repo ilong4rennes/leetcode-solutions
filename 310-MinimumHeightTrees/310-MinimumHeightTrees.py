@@ -1,4 +1,4 @@
-# Last updated: 1/30/2026, 4:10:22 AM
+# Last updated: 1/30/2026, 4:12:39 AM
 1class Solution:
 2    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
 3        graph = self.edges2graph(edges)
@@ -18,8 +18,8 @@
 17        return list(graph.keys())
 18    
 19    def edges2graph(self, edges):
-20        graph = defaultdict(list)
+20        graph = defaultdict(set)
 21        for node1, node2 in edges:
-22            graph[node1].append(node2)
-23            graph[node2].append(node1)
+22            graph[node1].add(node2)
+23            graph[node2].add(node1)
 24        return graph
