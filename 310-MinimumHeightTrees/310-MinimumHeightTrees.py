@@ -1,4 +1,4 @@
-# Last updated: 1/30/2026, 4:12:39 AM
+# Last updated: 1/30/2026, 4:13:09 AM
 1class Solution:
 2    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
 3        graph = self.edges2graph(edges)
