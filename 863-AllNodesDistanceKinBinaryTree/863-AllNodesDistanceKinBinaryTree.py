@@ -1,46 +1,38 @@
-# Last updated: 4/19/2025, 2:28:28 PM
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-class Solution:
-    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        graph = self.tree2graph(root)
-        visited = {node: False for node in graph} 
-        queue = deque()
-        queue.append(target)
-        visited[target] = True  
-        steps = 0
-        results = []
-
-        while queue:
-            if steps == k:
-                return [node.val for node in queue]
-            for _ in range(len(queue)):
-                current = queue.popleft()
-                for neighbor in graph[current]:
-                    if not visited[neighbor]:
-                        visited[neighbor] = True
-                        queue.append(neighbor)
-            steps += 1
-
-        return results
-    
-    def tree2graph(self, root):
-        graph = defaultdict(list)
-        self.inorder_recursive(root, graph)
-        return graph
-    
-    def inorder_recursive(self, root, graph):
-        if not root: return
-        self.inorder_recursive(root.left, graph)
-        if root.left:
-            graph[root].append(root.left)
-            graph[root.left].append(root)
-        if root.right:
-            graph[root].append(root.right)
-            graph[root.right].append(root)
-        self.inorder_recursive(root.right, graph)
+# Last updated: 1/29/2026, 8:49:08 PM
+1# Definition for a binary tree node.
+2# class TreeNode:
+3#     def __init__(self, x):
+4#         self.val = x
+5#         self.left = None
+6#         self.right = None
+7
+8class Solution:
+9    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+10        self.graph = defaultdict(list)
+11        self.tree2graph(root, None)
+12        q = deque([target])
+13        visited = set()
+14        visited.add(target)
+15        step = 0
+16        result = []
+17        while q:
+18            size = len(q)
+19            for _ in range(size):
+20                curr = q.popleft()
+21                if step == k:
+22                    result.append(curr.val)
+23                for to in self.graph[curr]:
+24                    if to not in visited:
+25                        q.append(to)
+26                        visited.add(to)
+27            step += 1
+28        return result
+29
+30    def tree2graph(self, node, parent):
+31        if parent:
+32            self.graph[node].append(parent)
+33            self.graph[parent].append(node)
+34        if node.left:
+35            self.tree2graph(node.left, node)
+36        if node.right:
+37            self.tree2graph(node.right, node)
