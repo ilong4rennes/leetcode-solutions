@@ -1,9 +1,9 @@
-# Last updated: 2/2/2026, 3:03:57 PM
+# Last updated: 2/2/2026, 3:04:08 PM
 1class Solution:
 2    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
 3        bank = set(bank)
-4        if endGene not in bank:
-5            return -1
+4        # if endGene not in bank:
+5        #     return -1
 6
 7        q = deque([startGene])
 8        visited = set()
