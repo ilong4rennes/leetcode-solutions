@@ -1,8 +1,8 @@
-# Last updated: 2/2/2026, 3:54:39 PM
+# Last updated: 2/2/2026, 3:55:47 PM
 1class Solution:
 2    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-3        if grid[0][0] == 1: return -1
-4        n = len(grid)
+3        n = len(grid)
+4        if grid[0][0] == 1 or grid[n-1][n-1] == 1: return -1
 5        def index(row, col): return row * n + col
 6        start = (0, 0)
 7        q = deque([start])
