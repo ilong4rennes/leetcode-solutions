@@ -1,4 +1,4 @@
-# Last updated: 2/2/2026, 3:57:38 PM
+# Last updated: 2/2/2026, 3:58:04 PM
 1class Solution:
 2    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
 3        n = len(grid)
@@ -14,7 +14,7 @@
 13                if currRow == n - 1 and currCol == n - 1:
 14                    return step
 15                for toRow, toCol in self.getNeighbors(currRow, currCol, n):
-16                    if grid[toRow][toCol] != 1 and grid[toRow][toCol] == 0:
+16                    if grid[toRow][toCol] == 0:
 17                        q.append((toRow, toCol))
 18                        grid[toRow][toCol] = 1
 19            step += 1
