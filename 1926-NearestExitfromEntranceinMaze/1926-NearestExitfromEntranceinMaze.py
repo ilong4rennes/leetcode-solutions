@@ -1,4 +1,4 @@
-# Last updated: 2/2/2026, 3:27:38 PM
+# Last updated: 2/2/2026, 3:28:23 PM
 1class Solution:
 2    def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
 3        rows, cols = len(maze), len(maze[0])
