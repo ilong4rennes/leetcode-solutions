@@ -1,4 +1,4 @@
-# Last updated: 2/2/2026, 3:02:03 PM
+# Last updated: 2/2/2026, 3:02:21 PM
 1class Solution:
 2    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
 3        q = deque([startGene])
